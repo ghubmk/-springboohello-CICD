@@ -3,8 +3,7 @@ pipeline{
     stages{
         stage('git checkoutfile'){
             steps{
-                git 'https://github.com/cloudtechmasters/springboohello-CICD.git'
-			          //git branch: 'main', url: 'https://github.com/cloudtechmasters/springboohello-CICD.git'
+		sh "git clone --single-branch --branch ${params.branch} ${params.cloneUrl} ${params.tag}"	
             }
         }
         stage('Build Maven'){
@@ -27,4 +26,4 @@ pipeline{
         }
     }
  }
-}	
+}
