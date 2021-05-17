@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('git checkoutfile'){
             steps{
-		sh "git clone --single-branch --branch ${params.branch} ${params.cloneUrl} ${params.tag}"	
+		sh "git clone --single-branch --branch ${params.branch} ${params.cloneUrl} ${params.cloneUrl}:${params.tag}"	
             }
         }
         stage('Build Maven'){
